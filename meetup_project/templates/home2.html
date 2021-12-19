@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Meet Up</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+* {
+	box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+	float: left;
+	padding: 30px;
+	height: 80vh; /* Should be removed. Only for demonstration */
+}
+
+.left {
+	width: 65%;
+}
+
+.right {
+	width: 35%;
+	z-index: 4;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.box {
+	width: 1200px;
+	height: 80px;
+	background-color: rgba(236, 41, 80, 0.2);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+}
+
+.text {
+	color: white;
+	padding-left: 500px;
+}
+
+.image {
+	width: 200px;
+	height: 80px;
+	z-index: -1;
+	border-radius: 4px;
+	position: absolute;
+	object-fit: cover;
+	opacity: 1;
+}
+</style>
+</head>
+<body style="background-color: white;">
+
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">MeetUp</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<nav class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="meetup/dashboard">Home
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<!--<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Dropdown </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">Action</a> <a
+						class="dropdown-item" href="#">Another action</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div></li>
+			<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
+			</li>-->
+		</ul>
+
+		<!-- modal  -->
+
+		<ul class="navbar-nav mr-right">
+			<li class="nav-item"><a class="nav-link" href="#!"
+				data-toggle="modal" data-target="#profile-modal"> <span
+					class="fa fa-user-circle "></span>{{user}}
+			</a></li>
+
+			<li class="nav-item"><a class="nav-link" href="/">
+					Logout </a></li>
+		</ul>
+
+
+
+
+
+
+	</nav>
+	</nav>
+<div align="center">
+    <h2>Meetup Chat</h2>
+</div>
+
+
+<div class="container">
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+    </style>
+   <div>
+
+    <form id="post-form" method="POST" action="checkview">
+        {% csrf_token %}
+        <label>Select Cuisine</label>
+<select name="room_name" id="room_name" width="100px">
+  <option value="Indian">Indian</option>
+  <option value="Fast Food">Fast Food</option>
+  <option value="Continental">Continental</option>
+  <option value="desserts">desserts</option>
+</select>
+        <label>Username(name which you want to use in public chat)</label>
+        <input type="text" name="username" id="username" width="100px" />
+        <input type="submit" value="Enter Chat">
+    </form>
+</div>
+<!--<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.container img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.container img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+</style>
+</head>
+<body>
+
+<div align="center">
+    <h2>Meetup Chat</h2>
+</div>
+
+
+<div class="container">
+    <style>
+    input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+    input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+    background-color: #45a049;
+    }
+
+    div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    }
+    </style>
+   
+
+    <form id="post-form" method="POST" action="checkview">
+        {% csrf_token %}
+        <label>Room Name</label>
+<select name="room_name" id="room_name" width="100px">
+  <option value="Indian">Indian</option>
+  <option value="Fast Food">Fast Food</option>
+  <option value="Continental">Continental</option>
+  <option value="desserts">desserts</option>
+</select>
+        <label>Username(name which you want to use in public chat)</label>
+        <input type="text" name="username" id="username" width="100px" />
+        <input type="submit" value="Enter Room">
+    </form>
+</div>
+
+
+</body>
+
+
+</html>-->

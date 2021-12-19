@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Meet Up</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+* {
+	box-sizing: border-box;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+	float: left;
+	padding: 30px;
+	height: 80vh; /* Should be removed. Only for demonstration */
+}
+
+.left {
+	width: 65%;
+}
+
+.right {
+	width: 35%;
+	z-index: 4;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.box {
+	width: 1200px;
+	height: 80px;
+	background-color: rgba(236, 41, 80, 0.2);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+}
+
+.text {
+	color: white;
+	padding-left: 500px;
+}
+
+.image {
+	width: 200px;
+	height: 80px;
+	z-index: -1;
+	border-radius: 4px;
+	position: absolute;
+	object-fit: cover;
+	opacity: 1;
+}
+</style>
+</head>
+<body style="background-color: black;">
+
+
+
+
+
+	<nav class="navbar navbar-expand-lg navbar-light navbar-dark bg-dark">
+	<a class="navbar-brand" href="#">MeetUp</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse"
+		data-target="#navbarSupportedContent"
+		aria-controls="navbarSupportedContent" aria-expanded="false"
+		aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="/Meetup/">Home
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<!--<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+			<li class="nav-item dropdown"><a
+				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+				role="button" data-toggle="dropdown" aria-haspopup="true"
+				aria-expanded="false"> Dropdown </a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="#">Action</a> <a
+						class="dropdown-item" href="#">Another action</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Something else here</a>
+				</div></li>
+			<li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a>
+			</li>-->
+		</ul>
+
+		<!-- modal  -->
+
+		<ul class="navbar-nav mr-right">
+			<li class="nav-item"><a class="nav-link" href="#!"
+				data-toggle="modal" data-target="#profile-modal"> <span
+					class="fa fa-user-circle "></span>{{user}}
+			</a></li>
+
+			<li class="nav-item"><a class="nav-link" href="/">
+					Logout </a></li>
+		</ul>
+
+
+
+
+
+
+	</div>
+	</nav>
+
+
+	<!--modal  -->
+
+	
+
+	<!-- main body -->
+
+	<!--<div class="row">
+		<div class="column left">
+			<h5 class="text" style="color: rgb(255, 215, 0);">Choose your
+				interest's so that others can connect with you</h5>
+			<div>
+				<form action="addInterest" method="post">
+					<br> <br> <label class="text">Select Category:</label> <select
+						name="interest" id="interest">
+						<c:forEach var="i" items="${interests}">
+							<option value="${i.iName}">${i.iName}</option>
+
+						</c:forEach>
+
+
+					</select> <br> <br> <br> <label class="text"><b>Enter
+							the interest name of your selected category :</b></label> <input type="text"
+						name="intename"><br> <br> <br> <label
+						class="text">write something:</label><br>
+					<textarea rows="8" cols="50" name="describe"></textarea>
+
+					<input type="submit" value="Add" class="btn btn-primary">
+				</form>
+			</div>
+
+
+		</div>-->
+		<div class="column right">
+			<h3 class="text" style="color: rgb(255, 215, 0); text-align: center;">CATEGORIES
+				</h3>
+
+
+			<div class="box">
+				<h4 class="text">
+					<a href="/meetup/home"> <span
+						style="color: white">sports/games</span></a>
+				</h4>
+
+				<!--<img class="image"
+					src="${pageContext.request.contextPath}/resources/images/sports.jpg">-->
+
+
+
+			</div>
+
+			&nbsp;&nbsp;&nbsp;
+
+
+
+			<div class="box">
+				<h4 class="text">
+					<a href="/meetup/home1"><span
+						style="color: white">Movies/OTT</span></a>
+				</h4>
+
+			<!--	<img class="image"
+					src="${pageContext.request.contextPath}/resources/images/ott.png">
+                -->
+
+
+			</div>
+
+			&nbsp;&nbsp;&nbsp;
+
+
+
+			<div class="box">
+				<h4 class="text">
+					<a href="/meetup/home2"><span
+						style="color: white">Restaurants</span></a>
+				</h4>
+
+				<!--<img class="image"
+					src="${pageContext.request.contextPath}/resources/images/rest.jpg">-->
+
+
+
+			</div>
+
+			&nbsp;&nbsp;&nbsp;
+
+
+
+			<div class="box">
+				<h4 class="text">
+					<a href="/meetup/home3"><span
+						style="color: white">Tourist Places</span></a>
+				</h4>
+
+				<!--<img class="image"
+					src="${pageContext.request.contextPath}/resources/images/tourist.jfif">-->
+
+
+
+			</div>
+
+
+		</div>
+	</div>
+
+	<center>
+
+
+		<div style="text-align: center; font-style: italic;">
+			<!--<h2 >
+				<span style="color: #ff4000">C</span><span style="color: #ff8000">A</span><span
+					style="color: #ffbf00">T</span><span style="color: #ffff00">E</span>
+					<span style="color: #ff4000">G</span><span style="color: #ff8000">O</span><span
+					style="color: #ffbf00">R</span><span style="color: #ffff00">I</span>
+					<span
+					style="color: #ffbf00">E</span><span style="color: #ffff00">S</span>
+					<span>
+					<style="color: transparent; text-shadow: none;">&nbsp;</span><span
+					style="color: #80ff00">G</span><span style="color: #40ff00">O</span><span
+					style="color: transparent; text-shadow: none;">&nbsp;</span><span
+					style="color: #00ff40">R</span><span style="color: #00ff80">I</span><span
+					style="color: #00ffbf">E</span><span style="color: #00ffff">S</span><span
+					style="color: transparent; text-shadow: none;">&nbsp;</span><span
+					style="color: #007fff">i</span><span style="color: #0040ff">n</span><span
+					style="color: #0000ff">t</span><span style="color: #4000ff">e</span><span
+					style="color: #7f00ff">r</span><span style="color: #bf00ff">e</span><span
+					style="color: #ff00ff">s</span><span style="color: #ff00bf">t</span><span
+					style="color: #ff0080">s</span><span
+					style="color: transparent; text-shadow: none;">&nbsp;</span><span
+					style="color: #ff0000">:</span>-->
+			</h2>
+		</div>
+
+
+	</center>
+
+
+<!--	<div class="row">
+		<c:forEach var="ui" items="${ui}">
+
+
+			<div class="col-mb-4 mt-0 " style="padding: 20px 10px">
+				<div class="card" style="width: 18rem;background-image: ${ui.color}">
+
+					<div class="card-body">
+						<h5 class="card-title">ui.interest</h5>
+						<p class="card-text"></p>
+						<p>ui.description</p>
+
+
+
+					</div>
+					<center class="bt btn-primary">
+						<a href="/Meetup/deletepost?postid=${ui.postid}"><span
+							style="color: white">Delete</span></a>
+					</center>
+
+				</div>
+
+			</div>
+
+
+
+
+		</c:forEach>
+
+	</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
